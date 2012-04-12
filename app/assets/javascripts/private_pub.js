@@ -51,6 +51,10 @@ function buildPrivatePub(doc) {
       if (!self.subscriptions.server) {
         self.subscriptions.server = options.server;
       }
+
+      if(!self.subscriptions.websocket_server) {
+        self.subscriptions.websocket_server = options.websocket_server;
+      }
       self.subscriptions[options.channel] = options;
       self.faye(function(faye) {
         faye.subscribe(options.channel, self.handleResponse);
